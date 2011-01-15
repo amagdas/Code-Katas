@@ -3,67 +3,51 @@ namespace BowlingGameKata
 {
 	public class Game
 	{
-		private int score;
-		private int[] throws = new int[21];
-		private int currentThrow;
 		private int currentFrame = 1;
 		private bool isFirstThrow = true;
+		private ScoreCalculator scoreCalculator = new ScoreCalculator ();
+		private const int LAST_FRAME_IN_GAME = 10;
+
 
 		public int Score {
-			get { return ScoreForFrame (CurrentFrame - 1); }
-		}
-
-		public int CurrentFrame {
-			get { return currentFrame; }
+			get { return ScoreForFrame (currentFrame); }
 		}
 
 		public void Add (int pins)
 		{
-			throws[currentThrow++] = pins;
-			score += pins;
-			
+			scoreCalculator.AddThrow (pins);
 			AdjustCurrentFrame (pins);
 		}
 
 		void AdjustCurrentFrame (int pins)
 		{
-			if (isFirstThrow) {
-				if (pins == 10)
-					//strike
-					currentFrame++;
-				else
-					isFirstThrow = false;
-			} else {
-				isFirstThrow = true;
-				currentFrame++;
-			}
-			
-			if(currentFrame > 11)
-				currentFrame = 11;
+			if (LastBallInFrame (pins)) {
+				AdvanceFrame ();
+			} else
+				isFirstThrow = false;
 		}
 
-		public int ScoreForFrame (int theFrame)
+		private bool LastBallInFrame (int pins)
 		{
-			int score = 0;
-			int ball = 0;
-			for (int currentFrame = 0; currentFrame < theFrame; currentFrame++) {
-				int firstThrow = throws[ball++];
-				
-				if (firstThrow == 10) {
-					score += 10 + throws[ball] + throws[ball+1];
-				} else {
-					int secondThrow = throws[ball++];
-					
-					int frameScore = firstThrow + secondThrow;
-					
-					if (frameScore == 10) {
-						score += frameScore + throws[ball];
-					} else
-						score += frameScore;
-				}
-			}
+			return Strike (pins) || (!isFirstThrow);
+		}
+
+		private bool Strike (int pins)
+		{
+			return (isFirstThrow && pins == 10);
+		}		
+
+		private void AdvanceFrame ()
+		{
+			currentFrame++;
 			
-			return score;
+			if (currentFrame > LAST_FRAME_IN_GAME)
+				currentFrame = LAST_FRAME_IN_GAME;
+		}
+
+		public int ScoreForFrame (int frame)
+		{
+			return scoreCalculator.ScoreForFrame (frame);
 		}
 	}
 }
