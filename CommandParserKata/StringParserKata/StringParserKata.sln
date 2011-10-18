@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringParserKata", "StringParserKata.csproj", "{667BF7FC-C19C-49A4-AB22-DF71953607CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandParser", "..\CommandParser\CommandParser.csproj", "{CDFF6E9D-02A6-4AC4-AEB9-15E8BB4FCABE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{667BF7FC-C19C-49A4-AB22-DF71953607CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{667BF7FC-C19C-49A4-AB22-DF71953607CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{667BF7FC-C19C-49A4-AB22-DF71953607CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{667BF7FC-C19C-49A4-AB22-DF71953607CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDFF6E9D-02A6-4AC4-AEB9-15E8BB4FCABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDFF6E9D-02A6-4AC4-AEB9-15E8BB4FCABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDFF6E9D-02A6-4AC4-AEB9-15E8BB4FCABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDFF6E9D-02A6-4AC4-AEB9-15E8BB4FCABE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
