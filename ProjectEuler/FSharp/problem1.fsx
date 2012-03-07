@@ -6,4 +6,4 @@ let sumOfAllMultiplesOf3And5Below n =
     |> Seq.filter (fun x -> (x%3) = 0 || (x%5) = 0)
     |> Seq.reduce(+)
 
-sumOfAllMultiplesOf3And5Below 1000 |> printfn "Problem 1 solution is %d"
+sumOfAllMultiplesOf3And5Below 1000 |> printfn "The solution for problem 1 is %d"

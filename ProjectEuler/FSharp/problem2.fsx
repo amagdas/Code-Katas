@@ -9,8 +9,9 @@ let isEven (a:BigInteger):bool = BigInteger.op_Equality(BigInteger.Remainder(a, 
 
 let generateFibonacciUpTo (max:BigInteger) :BigInteger =
     fibSeq (0I, 1I)        
-    |> Seq.filter (fun x -> isEven x )    
+    |> Seq.filter isEven
     |> Seq.takeWhile (fun x -> x < max)
     |> Seq.reduce(+)
 
 generateFibonacciUpTo 4000000I |> printfn "Solution for problem 2 is %A"
+ 
